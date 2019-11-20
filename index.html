@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seleção de Pacote de Viagem</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/jquery-ui/jquery-ui.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript">
+
+    function calendario() {
+
+        $.datepicker.regional['pt-BR'] = {
+            closeText: 'Fechar',
+            prevText: '&#x3c;Anterior',
+            nextText: 'Pr&oacute;ximo&#x3e;',
+            currentText: 'Hoje',
+            monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+            'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+
+        $("#data_ida_passagem").datepicker();
+        $("#data_volta_passagem").datepicker();
+        $("#data_entrada_hotel").datepicker();
+        $("#data_saida_hotel").datepicker();
+        $("#data_inicio_cruzeiro").datepicker();
+        $("#data_fim_cruzeiro").datepicker();
+        $("#data_inicio_seguro").datepicker();
+        $("#data_fim_seguro").datepicker();
+
+        
+        
+        
+        
+        
+        
+
+
+    }
+    </script>
+
+</head>
+<body>
+
+    <div class="main">
+        
+        <div class="header">
+            
+            Seleção de ítens do pacote<img src="images/dots.png" alt="">
+        </div>
+        <div class="container">
+
+            
+
+            <form id="booking-form" class="booking-form" method="POST" action="http://webapi2019gcpn.azurewebsites.net/api/reserva/CadastrarReserva/">
+                <div class="form-group">
+                    <div class="form-destination">
+                        <label for="destination">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu Nome" />
+                    </div>
+                    <div class="form-destination">
+                        <label for="destination">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="Seu CPF" />
+                    </div>
+                    <div class="form-destination">
+                       
+                    </div>
+                   
+                </div>   
+                <div class="form-group">
+                    <div class="form-destination">
+                        <label for="destination">Passagem?</label>
+                        <input type="checkbox" name="passagem" />
+                        
+                    </div>
+
+                    <div class="form-quantity">
+                        <label for="quantity">Qtd.Passageiros</label>
+                       
+                        <input type="number" name="qtd_passageiros_passagem" id="qtd_passageiros_passagem" value="0" min="0" class="nput-text text">
+                        
+                    </div>
+
+                    <div class="form-destination">
+                       
+                    </div>
+
+                   
+                </div>
+                <div class="form-group">
+                     <div class="form-destination">
+                        <label for="destination">Origem</label>
+                        <input type="text" id="origem_passagem" name="origem_passagem" placeholder="Ex. São Paulo" />
+                    </div>
+
+                    <div class="form-destination">
+                        <label for="destination">Destino</label>
+                        <input type="text" id="destino_passagem" name="destino_passagem" placeholder="Ex. Londres" />
+                    </div>
+
+                    <div class="form-date-from form-icon">
+                        <label for="date_from">Início</label>
+                        <input type="text" name="data_ida_passagem" id="data_ida_passagem" class="date_from" placeholder="De" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    <div class="form-date-to form-icon">
+                        <label for="date_to">Fim</label>
+                        <input type="text" name= "data_volta_passagem" id="data_volta_passagem" class="date_to" placeholder="A" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <div class="form-destination">
+                        <label for="destination">Hotel?</label>
+                        <input type="checkbox" name="hotel" value="true" />
+                        
+                    </div>
+
+                    <div class="form-quantity">
+                        <label for="quantity">Qtd.Hóspedes</label>
+                        <input type="number" name="qtd_hospedes_hotel" id="qtd_hospedes_hotel" value="0" min="0" class="nput-text text">
+                        
+                        
+                    </div>
+
+                    <div class="form-destination">
+                       
+                    </div>
+
+                   
+                </div>
+
+                <div class="form-group">
+                     <div class="form-destination">
+                        <label for="destination">Cidade</label>
+                        <input type="text" id="cidade_hotel" name="cidade_hotel" placeholder="Ex. São Paulo" />
+                    </div>
+
+
+                    <div class="form-date-from form-icon">
+                        <label for="date_from">Início</label>
+                        <input type="text" id="data_entrada_hotel" class="date_from" placeholder="De" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    <div class="form-date-to form-icon">
+                        <label for="date_to">Fim</label>
+                        <input type="text" id="data_saida_hotel" class="date_to" placeholder="A" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    
+                    
+                </div>     
+
+
+                <div class="form-group">
+                    <div class="form-destination">
+                        <label for="destination">Cruzeiro?</label>
+                        <input type="checkbox" name="cruzeiro" value="true" />
+                        
+                    </div>
+
+                    <div class="form-quantity">
+                        <label for="quantity">Qtd.Passageiros</label>
+                        <input type="number" name="qtd_passageiros_cruzeiro" id="qtd_passageiros_cruzeiro" value="0" min="0" class="nput-text text">
+                        
+                    </div>
+
+                    <div class="form-destination">
+                       
+                    </div>
+                </div>
+
+                <div class="form-group">
+                     <div class="form-destination">
+                        <label for="destination">Origem</label>
+                        <input type="text" id="origem_cruzeiro" name="origem_cruzeiro" placeholder="Ex. São Paulo" />
+                    </div>
+
+                    <div class="form-destination">
+                        <label for="destination">Destino</label>
+                        <input type="text" id="destino_cruzeiro" name="destino_cruzeiro" placeholder="Ex. Londres" />
+                    </div>
+
+                    <div class="form-date-from form-icon">
+                        <label for="date_from">Início</label>
+                        <input type="text" id="data_inicio_cruzeiro" class="date_from" placeholder="De" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    <div class="form-date-to form-icon">
+                        <label for="date_to">Fim</label>
+                        <input type="text" id="data_fim_cruzeiro" class="date_to" placeholder="A" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    
+                    
+                </div>                
+
+                   
+                <div class="form-group">
+                    <div class="form-destination">
+                        <label for="destination">Seguro?</label>
+                        <input type="checkbox" name="seguro" value="true" />
+                        
+                    </div>
+
+                    <div class="form-date-from form-icon">
+                        <label for="date_from">Início</label>
+                        <input type="text" name="data_inicio_seguro" id="data_inicio_seguro" class="date_from" placeholder="De" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+                    <div class="form-date-to form-icon">
+                        <label for="date_to">Fim</label>
+                        <input type="text" name="data_fim_seguro" id="data_fim_seguro" class="date_to" placeholder="A" />
+                        <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+                    </div>
+
+                   
+                </div>                
+
+                
+                <div class="form-group">
+                    <div class="form-destination">
+                       
+                    </div>
+                    <div class="form-submit">
+                        <input type="button" id="submit" class="submit" value="Reservar" onclick="submitform()" />
+                    </div>
+                    <div class="form-destination">
+                        <label id="resultado"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+
+
+    function submitform(){
+        //alert('Testej');
+        let form = document.forms[0];
+        //xhr.open(form.method, form.action, true);
+
+        //Local
+        //http://localhost:55460/api/reserva/CadastrarReserva/
+
+        //Real
+        //http://webapi2019gcpn.azurewebsites.net/api/reserva/CadastrarReserva/
+
+        
+
+        //alert("Dados Enviados!");
+        //alert(JSON.stringify(j))
+
+        /*
+        prompt("Copy to clipboard: Ctrl+C, Enter", JSON.stringify({
+            nome: form.elements["nome"].value,
+            cpf: form.elements["cpf"].value,
+
+            passagem: form.elements["passagem"].checked,
+            origem_passagem: form.elements["origem_passagem"].value,
+            destino_passagem: form.elements["destino_passagem"].value,
+            data_ida_passagem: form.elements["data_ida_passagem"].value,
+            data_volta_passagem: form.elements["data_volta_passagem"].value,
+            qtd_passageiros_passagem: form.elements["qtd_passageiros_passagem"].value,
+
+            hotel: form.elements["hotel"].checked,
+            cidade_hotel: form.elements["cidade_hotel"].value,
+            data_entrada_hotel: form.elements["data_entrada_hotel"].value,
+            data_saida_hotel: form.elements["data_saida_hotel"].value,
+            qtd_hospedes_hotel: form.elements["qtd_hospedes_hotel"].value,
+
+            cruzeiro: form.elements["cruzeiro"].checked,
+            origem_cruzeiro: form.elements["origem_cruzeiro"].value,
+            destino_cruzeiro: form.elements["destino_cruzeiro"].value,
+            data_inicio_cruzeiro: form.elements["data_inicio_cruzeiro"].value,
+            data_fim_cruzeiro: form.elements["data_fim_cruzeiro"].value,
+            qtd_passageiros_cruzeiro: form.elements["qtd_passageiros_cruzeiro"].value,
+
+            seguro: form.elements["seguro"].checked,
+            data_inicio_seguro: form.elements["data_inicio_seguro"].value,
+            data_fim_seguro: form.elements["data_fim_seguro"].value,
+
+        }));
+        */
+
+
+        $.ajax({
+            url: "http://webapi2019gcpn.azurewebsites.net/api/reserva/CadastrarReserva/",
+            type: 'post',
+            data: {
+                nome: form.elements["nome"].value,
+                cpf: form.elements["cpf"].value,
+
+                passagem: form.elements["passagem"].checked,
+                origem_passagem: form.elements["origem_passagem"].value,
+                destino_passagem: form.elements["destino_passagem"].value,
+                data_ida_passagem: form.elements["data_ida_passagem"].value,
+                data_volta_passagem: form.elements["data_volta_passagem"].value,
+                qtd_passageiros_passagem: form.elements["qtd_passageiros_passagem"].value,
+
+                hotel: form.elements["hotel"].checked,
+                cidade_hotel: form.elements["cidade_hotel"].value,
+                data_entrada_hotel: form.elements["data_entrada_hotel"].value,
+                data_saida_hotel: form.elements["data_saida_hotel"].value,
+                qtd_hospedes_hotel: form.elements["qtd_hospedes_hotel"].value,
+
+                cruzeiro: form.elements["cruzeiro"].checked,
+                origem_cruzeiro: form.elements["origem_cruzeiro"].value,
+                destino_cruzeiro: form.elements["destino_cruzeiro"].value,
+                data_inicio_cruzeiro: form.elements["data_inicio_cruzeiro"].value,
+                data_fim_cruzeiro: form.elements["data_fim_cruzeiro"].value,
+                qtd_passageiros_cruzeiro: form.elements["qtd_passageiros_cruzeiro"].value,
+
+                seguro: form.elements["seguro"].checked,
+                data_inicio_seguro: form.elements["data_inicio_seguro"].value,
+                data_fim_seguro: form.elements["data_fim_seguro"].value,
+
+            },
+            beforeSend: function () {
+                $("#resultado").html("RESERVA DE " + form.elements["nome"].value + " ENVIADA COM SUCESSO...");
+            }
+        })
+
+        ;
+       
+
+        
+        //$.post("http://webapi2019gcpn.azurewebsites.net/api/reserva/CadastrarReserva/", JSON.stringify(j), function(msg){
+          //   alert(msg);
+        //})
+        
+        //var xhr = new XMLHttpRequest();
+        
+        
+        //xhr.send(JSON.stringify(j));
+
+        
+    }
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<script>
+    calendario();
+</script>
+</html>
