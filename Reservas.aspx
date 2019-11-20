@@ -5,41 +5,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
     
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_RESERVA" DataSourceID="odsReservas">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_RESERVA" DataSourceID="odsReservas" CssClass="table table-striped">
             <Columns>
-                <asp:BoundField DataField="ID_RESERVA" HeaderText="ID_RESERVA" InsertVisible="False" ReadOnly="True" SortExpression="ID_RESERVA" />
+                <asp:BoundField DataField="ID_RESERVA" HeaderText="ID_RESERVA" InsertVisible="False" ReadOnly="True" SortExpression="ID_RESERVA" Visible="False" />
                 <asp:BoundField DataField="CPF" HeaderText="CPF" SortExpression="CPF" />
                 <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
-                <asp:CheckBoxField DataField="PASSAGEM" HeaderText="PASSAGEM" SortExpression="PASSAGEM" />
-                <asp:BoundField DataField="QTD_PASSAGEM" HeaderText="QTD_PASSAGEM" SortExpression="QTD_PASSAGEM" />
-                <asp:BoundField DataField="ORIGEM_PASSAGEM" HeaderText="ORIGEM_PASSAGEM" SortExpression="ORIGEM_PASSAGEM" />
-                <asp:BoundField DataField="DESTINO_PASSAGEM" HeaderText="DESTINO_PASSAGEM" SortExpression="DESTINO_PASSAGEM" />
-                <asp:BoundField DataField="INICIO_PASSAGEM" HeaderText="INICIO_PASSAGEM" SortExpression="INICIO_PASSAGEM" />
-                <asp:BoundField DataField="FIM_PASSAGEM" HeaderText="FIM_PASSAGEM" SortExpression="FIM_PASSAGEM" />
-                <asp:BoundField DataField="VALOR_PASSAGEM" HeaderText="VALOR_PASSAGEM" SortExpression="VALOR_PASSAGEM" />
-                <asp:CheckBoxField DataField="HOTEL" HeaderText="HOTEL" SortExpression="HOTEL" />
-                <asp:BoundField DataField="QTD_HOTEL" HeaderText="QTD_HOTEL" SortExpression="QTD_HOTEL" />
-                <asp:BoundField DataField="CIDADE_HOTEL" HeaderText="CIDADE_HOTEL" SortExpression="CIDADE_HOTEL" />
-                <asp:BoundField DataField="INICIO_HOTEL" HeaderText="INICIO_HOTEL" SortExpression="INICIO_HOTEL" />
-                <asp:BoundField DataField="FIM_HOTEL" HeaderText="FIM_HOTEL" SortExpression="FIM_HOTEL" />
-                <asp:BoundField DataField="VALOR_HOTEL" HeaderText="VALOR_HOTEL" SortExpression="VALOR_HOTEL" />
-                <asp:CheckBoxField DataField="CRUZEIRO" HeaderText="CRUZEIRO" SortExpression="CRUZEIRO" />
-                <asp:BoundField DataField="QTD_CRUZEIRO" HeaderText="QTD_CRUZEIRO" SortExpression="QTD_CRUZEIRO" />
-                <asp:BoundField DataField="ORIGEM_CRUZEIRO" HeaderText="ORIGEM_CRUZEIRO" SortExpression="ORIGEM_CRUZEIRO" />
-                <asp:BoundField DataField="DESTINO_CRUZEIRO" HeaderText="DESTINO_CRUZEIRO" SortExpression="DESTINO_CRUZEIRO" />
-                <asp:BoundField DataField="INICIO_CRUZEIRO" HeaderText="INICIO_CRUZEIRO" SortExpression="INICIO_CRUZEIRO" />
-                <asp:BoundField DataField="FIM_CRUZEIRO" HeaderText="FIM_CRUZEIRO" SortExpression="FIM_CRUZEIRO" />
-                <asp:BoundField DataField="VALOR_CRUZEIRO" HeaderText="VALOR_CRUZEIRO" SortExpression="VALOR_CRUZEIRO" />
-                <asp:CheckBoxField DataField="SEGURO" HeaderText="SEGURO" SortExpression="SEGURO" />
-                <asp:BoundField DataField="INICIO_SEGURO" HeaderText="INICIO_SEGURO" SortExpression="INICIO_SEGURO" />
-                <asp:BoundField DataField="FIM_SEGURO" HeaderText="FIM_SEGURO" SortExpression="FIM_SEGURO" />
-                <asp:BoundField DataField="VALOR_SEGURO" HeaderText="VALOR_SEGURO" SortExpression="VALOR_SEGURO" />
-                <asp:BoundField DataField="VALOR_TOTAL" HeaderText="VALOR_TOTAL" SortExpression="VALOR_TOTAL" />
+                <asp:CheckBoxField DataField="PASSAGEM" HeaderText="PASSAGEM?" SortExpression="PASSAGEM" />
+                <asp:BoundField DataField="QTD_PASSAGEM" HeaderText="PASSAGEIROS" SortExpression="QTD_PASSAGEM" />
+                <asp:BoundField DataField="ORIGEM_PASSAGEM" HeaderText="ORIGEM" SortExpression="ORIGEM_PASSAGEM" />
+                <asp:BoundField DataField="DESTINO_PASSAGEM" HeaderText="DESTINO" SortExpression="DESTINO_PASSAGEM" />
+                <asp:BoundField DataField="INICIO_PASSAGEM" HeaderText="INÍCIO" SortExpression="INICIO_PASSAGEM" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="FIM_PASSAGEM" HeaderText="FIM" SortExpression="FIM_PASSAGEM" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="VALOR_PASSAGEM" HeaderText="VALOR_PASSAGEM" SortExpression="VALOR_PASSAGEM" Visible="False" />
+                <asp:CheckBoxField DataField="HOTEL" HeaderText="HOTEL?" SortExpression="HOTEL" />
+                <asp:BoundField DataField="QTD_HOTEL" HeaderText="HÓSPEDES" SortExpression="QTD_HOTEL" />
+                <asp:BoundField DataField="CIDADE_HOTEL" HeaderText="CIDADE" SortExpression="CIDADE_HOTEL" />
+                <asp:BoundField DataField="INICIO_HOTEL" HeaderText="INÍCIO" SortExpression="INICIO_HOTEL" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="FIM_HOTEL" HeaderText="FIM" SortExpression="FIM_HOTEL" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="VALOR_HOTEL" HeaderText="VALOR_HOTEL" SortExpression="VALOR_HOTEL" Visible="False" />
+                <asp:CheckBoxField DataField="CRUZEIRO" HeaderText="CRUZEIRO?" SortExpression="CRUZEIRO" />
+                <asp:BoundField DataField="QTD_CRUZEIRO" HeaderText="PASSAGEIROS" SortExpression="QTD_CRUZEIRO" />
+                <asp:BoundField DataField="ORIGEM_CRUZEIRO" HeaderText="ORIGEM" SortExpression="ORIGEM_CRUZEIRO" />
+                <asp:BoundField DataField="DESTINO_CRUZEIRO" HeaderText="DESTINO" SortExpression="DESTINO_CRUZEIRO" />
+                <asp:BoundField DataField="INICIO_CRUZEIRO" HeaderText="INÍCIO" SortExpression="INICIO_CRUZEIRO" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="FIM_CRUZEIRO" HeaderText="FIM" SortExpression="FIM_CRUZEIRO" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="VALOR_CRUZEIRO" HeaderText="VALOR_CRUZEIRO" SortExpression="VALOR_CRUZEIRO" Visible="False" />
+                <asp:CheckBoxField DataField="SEGURO" HeaderText="SEGURO?" SortExpression="SEGURO" />
+                <asp:BoundField DataField="INICIO_SEGURO" HeaderText="INÍCIO" SortExpression="INICIO_SEGURO" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="FIM_SEGURO" HeaderText="FIM" SortExpression="FIM_SEGURO" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="VALOR_SEGURO" HeaderText="VALOR_SEGURO" SortExpression="VALOR_SEGURO" Visible="False" />
+                <asp:BoundField DataField="VALOR_TOTAL" HeaderText="VALOR_TOTAL" SortExpression="VALOR_TOTAL" Visible="False" />
                 <asp:BoundField DataField="DATA_RESERVA" HeaderText="DATA_RESERVA" SortExpression="DATA_RESERVA" />
             </Columns>
         </asp:GridView>
